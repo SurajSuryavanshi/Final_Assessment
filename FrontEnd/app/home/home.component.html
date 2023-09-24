@@ -1,0 +1,62 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <i class="fa fa-user-o" aria-hidden="true"  style="color: white;"></i>
+  <a class="navbar-brand" style="color: white" routerLink="/home">
+      &nbsp; Wel-come </a> 
+
+  <div class="collapse navbar-collapse">
+    <div class="navbar-nav ml-auto">
+      <span  class="nav-item nav-link"
+        style="font-weight: bold; color: whitesmoke"
+        ></span
+      >&nbsp;
+      <a 
+        style="cursor: pointer; font-weight: bold; color: whitesmoke"
+        class="nav-item nav-link"
+        >LogOut</a >
+    </div>
+  </div>
+</nav>
+
+
+  
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 80vh;">
+
+  <div class="card p-3 py-4" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+      <div class="text-center"> 
+  <img src="../../assets/profile.jpg" width="100" class="rounded-circle">
+          <h3 class="mt-2">{{obj.otp.name}}</h3>
+    <span class="mt-1 clearfix">{{obj.otp.customerId}}</span><br>
+
+    
+    
+    <div class="row " style="width: 400px;">
+    
+      <div class="col-md-5" style="margin-left: -15px;">
+        
+        <button type="button"  class="btn btn-outline-success" (click)="onClick()">Paid Bill</button>
+        
+      </div>
+      <div class="col-md-7">
+        <button type="button" style="position: fixed;" class="btn btn-outline-warning" (click)="onClick1()">Unpaid Bill</button>
+      </div>
+      
+    
+    </div>
+    
+    <hr class="line">
+    
+    <small class="mt-4">Pay your bill today, light up your life tomorrow.</small>
+            <div class="social-buttons mt-5"> 
+       
+      </div>
+      
+     <div class="profile mt-5">
+     
+      <button type="button" class="btn btn-outline-primary" (click)="onClick2()">View Transaction</button>
+
+  </div>
+       
+      </div>
+  </div>
+</div>

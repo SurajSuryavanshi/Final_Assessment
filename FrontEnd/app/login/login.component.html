@@ -1,0 +1,77 @@
+<!-- Section: Design Block -->
+<section class="">
+    <nav class="navbar navbar-dark bg-dark ">
+     
+      <h4 style="color: aliceblue;">Well Come</h4>
+    
+    </nav>
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="my-5 display-3 fw-bold ls-tight">
+              Pay your Bill <br />
+              <span class="text-primary">Save your Money</span>
+            </h1>
+            <p style="color: hsl(217, 10%, 50.8%)">
+              If you’re like most people, you probably don’t pay much attention to your power bill.
+              Your utility sends it, you pay it, and then you forget about it until the next month. 
+              But suddenly you notice that your bill has jumped up or even doubled
+            </p>
+          </div>
+  
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+
+                <form #f="ngForm">
+
+
+                 
+  
+                  <!-- User ID input -->
+                  <div class="form-outline mb-4">
+                    <input #customerID="ngModel" type="email" ngModel type="customerID" name="customerID" id="userID" class="form-control" />
+                    <label class="form-label" for="userID">Consumer ID</label>
+                  </div>
+
+                  
+                  <div class="alert alert-danger" *ngIf="customerID.touched && !customerID.valid"> * Please
+                    Enter the customerID ...
+                </div>
+                <div class="alert alert-danger" *ngIf="customerID.touched && !customerID.valid && customerID.errors?.minlength">
+                    ** Please enter customerId of {{customerID.errors?.minlength.requiredLength}}
+                    character
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="customerID.touched && !customerID.valid && customerID.errors?.pattern">*
+                    Appropriate customerId Id is required
+
+                </div>
+  
+                  <!-- OTP input -->
+                  <div class="form-outline mb-4">
+                    <input #OTP type="password" id="userotp" class="form-control" />
+                    <label class="form-label" for="userotp">OTP</label>
+                  </div>
+  
+                  <!-- Submit button -->
+                  <button type="send" class="btn btn-primary btn-block mb-4" (click)="otp(customerID.value)">
+                    Send OTP
+                  </button>
+                  <button  (click)="login(OTP.value,customerID.value)" type="login" class="btn btn-primary btn-block mb-4" [disabled]="!f.valid" >
+                    login
+                  </button>
+  
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
