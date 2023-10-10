@@ -1,0 +1,45 @@
+<form #f="ngForm">
+<div class="container p-0">
+    <div class="card px-4">
+        <p class="h8 py-3">Payment Details</p>
+        <div class="row gx-3">
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Name</p>
+                    <input class="form-control mb-3" ngModel type="text" placeholder="Bank Holder">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Card Number</p>
+                    <input  class="form-control mb-3" ngModel type="text" placeholder="1234 5678 435678"  pattern="[0-9]{16}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Expiry</p>
+                    <input class="form-control mb-3" ngModel type="text" placeholder="MM/YYYY">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">CVV/CVC</p>
+                    <input class="form-control mb-3 pt-2 " ngModel type="password" placeholder="***" pattern="[0-9]{3}">
+                </div>
+            </div>
+            <div class="col-12">
+                
+                <div class="btn btn-outline-success mb-3">
+                    <span class="ps-3" (click)="pay(f)">Pay</span>
+                    </div>
+                <div class="btn btn-outline-secondary mb-3" style="margin-left: 10px;" (click)="goback()">
+                    <span class="ps-3" >Cancel</span>
+                </div>
+                    
+
+                   
+                
+            </div>
+        </div>
+    </div>
+</div>
