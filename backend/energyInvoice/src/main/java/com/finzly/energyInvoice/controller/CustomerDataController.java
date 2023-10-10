@@ -22,22 +22,35 @@ public class CustomerDataController {
 
 	@Autowired
 	private CustomerDataService customerDataService;
+	
 
-
+	/**
+	 * 
+	 * @author Aakanksha
+	 * Add a new customer.
+	 *
+	 */
 	@PostMapping(value = "/add-customer")
 	public Map<String, String> addCustomer(@RequestBody CustomerData customerData) {
 
 		return customerDataService.addCustomer(customerData);
 
 	}
-
+	/**
+	 * 
+	 * @author Aakanksha
+	 * Uploads customer data from a file
+	 */
 	@PostMapping(value = "/upload-customer")
 	public ResponseEntity<String> uploadCustomer(@RequestParam("file") MultipartFile dataFile) {
 
 		return customerDataService.uploadCustomer(dataFile);
 
 	}
-	
+	/**
+	 * @author Aakanksha
+	 *Retrieves a list of customers.
+	 */
 	
 	@PostMapping(value="/get-customers")
 	public ResponseEntity<List<CustomerData>>getCustomers(){
@@ -45,6 +58,9 @@ public class CustomerDataController {
 		
 		return customerDataService.getCustomers();
 	}
+	
+	
+	
 	
 	
 	

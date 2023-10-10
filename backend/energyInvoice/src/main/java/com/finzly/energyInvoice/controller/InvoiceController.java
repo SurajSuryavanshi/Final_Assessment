@@ -31,7 +31,11 @@ public class InvoiceController {
 		
 		return invoiceService.getInvoices();
 	}
-	
+	/**
+	 * 
+	 *	@author Suraj
+	 * 	Retrieves a list of invoices for a specific customer
+	 */
 	
 	@PostMapping(value="/get-custInvoices/{customerId}")
 	public List<Invoice> getCustInvoices(@PathVariable long customerId ){
@@ -41,11 +45,33 @@ public class InvoiceController {
 	}
 	
 	
+	/*
+	 * @author Suarj
+	 * Retrieves a list of invoices for a specific customer by invoiceId
+	 */
+	
+	@PostMapping(value="/get-invoice/{invoiceId}")
+	public Invoice getInvoice(@PathVariable long invoiceId) {
+		
+		return invoiceService.getInvoice(invoiceId);
+	}
+	
+	/**
+	 * 
+	 *	@author Suraj
+	 * 	Retrieves all the bill which are unpaid or payment status is unpaid
+	 */
+	
 	@PostMapping(value="get-unpaid/{customerId}")
 	public List<Invoice> getUnpaidInvoices(@PathVariable long customerId) {
 		
 		return invoiceService.getUnpaidInvoices(customerId);	
 	}
+	/**
+	 * 
+	 * @author Suraj
+	 *	Retrieves all the bill which are paid or payment status is paid
+	 */
 	
 	@PostMapping(value="get-paid/{customerId}")
 	public List<Invoice> getpaidInvoices(@PathVariable long customerId) {

@@ -25,12 +25,12 @@ public class Login {
 		
 	}
 	
-	public long getEmployeeId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
-	public void setEmployeeId(long employeeId) {
-		this.customerId = employeeId;
+	public void setEmployeeId(long customerId) {
+		this.customerId = customerId;
 	}
 
 	public int getOtp() {

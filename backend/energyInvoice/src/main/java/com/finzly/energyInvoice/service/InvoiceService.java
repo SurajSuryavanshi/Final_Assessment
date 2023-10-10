@@ -18,10 +18,10 @@ import com.finzly.energyInvoice.entity.Invoice;
 public class InvoiceService {
 	
 	@Autowired
-	InvoiceDao invoiceDao;
+	private InvoiceDao invoiceDao;
 	
 	@Autowired
-	SessionFactory factory;
+	private SessionFactory factory;
 
 
 	public ResponseEntity<List<Invoice>> getInvoices() {
@@ -82,6 +82,24 @@ public class InvoiceService {
 			}
 		}
 		return(response);
+	}
+
+
+	public Invoice getInvoice(long invoiceId) {
+	
+     List<Invoice> invoices = invoiceDao.getInvoices();
+		
+		
+		
+		for(Invoice invoice: invoices) {
+			
+			if(invoice.getInvoiceId()==invoiceId){
+				
+				return invoice;
+			}
+		}
+		return null;
+	
 	}
 
 }

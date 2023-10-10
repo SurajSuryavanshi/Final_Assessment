@@ -17,9 +17,13 @@ import com.finzly.energyInvoice.entity.Login;
 public class LoginService {
 	
 	@Autowired
-	LoginDao loginDao;
+	private LoginDao loginDao;
 	
-public ResponseEntity<Map<String,Object>> checkValid(Long customerId){
+	
+	
+	
+	
+	public ResponseEntity<Map<String,Object>> checkValid(Long customerId){
 		
         Map<String, Object > response= new HashMap<>();
   
@@ -36,6 +40,9 @@ public ResponseEntity<Map<String,Object>> checkValid(Long customerId){
         return ResponseEntity.badRequest().body(response);
 	
 	}
+	
+	
+	
 	
     public ResponseEntity<Map<String,String>> login(CustomerData customer) {
 		

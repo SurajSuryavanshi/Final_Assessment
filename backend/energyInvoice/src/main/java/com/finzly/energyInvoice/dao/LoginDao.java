@@ -18,17 +18,14 @@ import com.finzly.energyInvoice.utility.Validation;
 public class LoginDao {
 	
 	@Autowired
-	SessionFactory factory;
+	private SessionFactory factory;
 
-public CustomerData checkValid(Long customerId) {
+	public CustomerData checkValid(Long customerId) {
 		
         Session session = factory.openSession();
-		
 		Criteria criteria = session.createCriteria(CustomerData.class);
-		
 		List<CustomerData> isValid = criteria.add(Restrictions.eq("customerId",customerId)).list();
 		
-
 		if(isValid.isEmpty()) {
 			
 			return null;
@@ -36,10 +33,7 @@ public CustomerData checkValid(Long customerId) {
 		
 		isValid.get(0).setOtp(Validation.generateRandom());
 		session.update(isValid.get(0));
-		
 		session.beginTransaction().commit();
-		
-		
 		return isValid.get(0);
 		
 		

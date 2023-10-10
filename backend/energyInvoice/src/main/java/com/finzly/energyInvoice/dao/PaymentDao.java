@@ -22,10 +22,10 @@ public class PaymentDao {
 	
 	
 	@Autowired
-	 SessionFactory factory;
+	private SessionFactory factory;
 	
 	
-	public void makePayment(Invoice invoice, double billAmount, boolean isEarly, boolean isOnline) {
+	public Receipt makePayment(Invoice invoice, double billAmount, boolean isEarly, boolean isOnline) {
 		
 		 Session session = factory.openSession();
 		 session.beginTransaction();
@@ -88,6 +88,8 @@ public class PaymentDao {
           session.getTransaction().commit();
 		  
 		  session.close();
+		   
+		  return receipt;
 		  
 		  
 		 
@@ -96,8 +98,6 @@ public class PaymentDao {
 	}
 	
 	
-
-
 	private String getName(long mapId) {
 		
 		Session session = factory.openSession();
@@ -106,8 +106,6 @@ public class PaymentDao {
 		return customer.getName();
 		
 	}
-
-
 
 
 	public List<Payment> getHistory() {

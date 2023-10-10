@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.finzly.energyInvoice.entity.Invoice;
 import com.finzly.energyInvoice.entity.Payment;
+import com.finzly.energyInvoice.entity.Receipt;
 import com.finzly.energyInvoice.service.PaymentService;
 
 @RestController
@@ -22,16 +23,26 @@ public class PaymentController {
 	
 	
 	@Autowired
-	PaymentService paymentService;
+	private PaymentService paymentService;
 	
-	@PostMapping(value="/make-payment")
-	public ResponseEntity<Map<String, String>> makePayment(@RequestBody Invoice invoice){
+	/**
+	 * 
+	 * @author Suraj 
+	 * Endpoint to make a payment for an invoice.
+	 */
+	
+	@PostMapping(value="make-payment")
+	public ResponseEntity<Receipt> makePayment(@RequestBody Invoice invoice){
 		
 		return paymentService.makePayment(invoice);
 		
 		
 	}
-	
+	/**
+	 * @author Suraj
+	 * Endpoint to check if an invoice is pending
+	 * 
+	 */
 	
 	@PostMapping(value="/is-pending")
 	public ResponseEntity<Map<String, Object>> isPending(@RequestBody Invoice invoice){
@@ -39,21 +50,34 @@ public class PaymentController {
 		return paymentService.isPending(invoice);
 	}
 	
+	/**
+	 * @author Aakanksha
+	 * Endpoint to retrieve the payment history for a specific customer.
+	 * 
+	 */
 	
 	
-	@PostMapping(value="/get-history/{customerId}")
+	
+	@PostMapping(value="get-history/{customerId}")
 	public List<Payment> getHistory(@PathVariable long customerId) {
 		
 		return paymentService.getHistory(customerId);	
 	}
 	
+	/**
+	 * 
+	 * @author Suraj 
+	 * Endpoint to make a payment for an invoice get that invoice by it's invoiceID.
+	 */
 	
-	/*@PostMapping(value="/get-history/{invoiceno}")
-	public List<Payment> getHistory(@PathVariable string customerId) {
-		
-		return paymentService.getHistory(customerId);	
+	@PostMapping(value="/make-payment1/{invoiceId}")
+	public Map<String,String> makepayment1(@PathVariable long invoiceId){
+	
+		 return paymentService.makePayment1(invoiceId);		
 	}
-	*/
+	
+	
+	
 	
 	
 	

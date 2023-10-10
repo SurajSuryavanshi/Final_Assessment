@@ -18,14 +18,11 @@ public class InvoiceDao {
 	
 	
 	@Autowired
-	SessionFactory factory;
+	private SessionFactory factory;
 
 	public void generateInvoice(CustomerData customerData) {
 		
-		// 21 sept
 		
-		
-		//System.out.println("IN DAOOOOOOOOOOOOOOOOO"+customerData);
 		
 		Invoice invoice = new Invoice();
 		
@@ -34,8 +31,7 @@ public class InvoiceDao {
 		invoice.setInvoiceNumber(invoiceNumber);
 		
 		
-		System.out.println("Billling Rate"+invoice.getBillingRate());
-		System.out.println("UnitConsumption"+customerData.getUnitConsumption());
+		
 		invoice.setAmountDue(invoice.getBillingRate()*customerData.getUnitConsumption());
      	invoice.setPaymentStatus(false);   
      	
@@ -48,15 +44,13 @@ public class InvoiceDao {
      	session.beginTransaction();
      	session.save(invoice);
      	
-     	//customerData.getInvoices().add(invoice);
      	
-       //session.save(customerData);
      	session.getTransaction().commit();
      	
      	session.close();
      	
      	
-     	//System.out.print(invoice);	
+     		
 		
 	}
 	

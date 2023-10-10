@@ -20,7 +20,14 @@ public class LoginController {
 	
 	
 	@Autowired
-	LoginService loginService;
+	private LoginService loginService;
+	
+	/**
+	 * 
+	 * @author Suraj
+	 * Checks the validity of a customer
+	 * 
+	 */
 	
 	@PostMapping(value = "/check-valid/{customerId}")
 	ResponseEntity<Map<String, Object>> checkValid(@PathVariable Long customerId){
@@ -28,7 +35,11 @@ public class LoginController {
 		return loginService.checkValid(customerId);
 	}
 
-	
+	/**
+	 * 
+	 * @author Suarj
+	 * Handles customer login
+	 */
 	@PostMapping(value = "/login")
 	ResponseEntity<Map<String,String>> login(@RequestBody CustomerData customer){
 		   

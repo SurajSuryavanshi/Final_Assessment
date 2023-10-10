@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.finzly.energyInvoice.controller.LoginController;
 import com.finzly.energyInvoice.dao.CustomerDataDao;
 import com.finzly.energyInvoice.dao.InvoiceDao;
 import com.finzly.energyInvoice.entity.CustomerData;
@@ -86,6 +87,14 @@ public class CustomerDataService {
 	    	
 	    
 	     }	
+	    
+	    /*
+	     * 
+	     */
+//	    public void test() {
+//	    	LoginController l=new LoginController();
+//	    	l.
+//	    }
 	    
 }
 

@@ -21,9 +21,10 @@ public class Validation {
         String yearMonth2 = dateFormat.format(date2);
         
         
+        
+        //Both dates have the same year and month
         if (yearMonth1.equals(yearMonth2)) {
-            System.out.println("Both dates have the same year and month.");
-            
+          
             return true;
         }
         
@@ -32,7 +33,9 @@ public class Validation {
 	
 	
 	 public static int generateRandom() {
-	        
+		 
+		 
+	        //Generate 4 Digit random number for opt 
 		    Random random = new Random();
 	        int min = 1000;
 	        int max = 9999;
